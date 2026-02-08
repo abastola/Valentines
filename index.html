@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>For Simran 💕</title>
   <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
@@ -10,33 +10,14 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Outfit:wght@200;300;400;500;600&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          colors: {
-            cream: '#FFF8F0',
-            ivory: '#FEFAF3',
-            gold: {
-              light: '#F5D78E',
-              DEFAULT: '#D4A843',
-              deep: '#B8860B',
-              dark: '#8B6914',
-            },
-            crimson: {
-              light: '#E8434A',
-              DEFAULT: '#C41E3A',
-              deep: '#8B0023',
-              dark: '#5C0018',
-            },
-            blush: '#F4C2C2',
-            rose: '#E8A0A0',
-            warm: '#FFF0E6',
-          },
           fontFamily: {
-            display: ['"Playfair Display"', 'serif'],
-            body: ['"Crimson Text"', 'serif'],
+            display: ['"Cormorant Garamond"', 'serif'],
+            body: ['"Outfit"', 'sans-serif'],
             script: ['"Dancing Script"', 'cursive'],
           },
         },
@@ -44,85 +25,72 @@
     };
   </script>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { overflow-x: hidden; background: #1a0008; }
-
-    /* ===== FLOATING ELEMENTS ===== */
-    @keyframes floatUp {
-      0% { transform: translateY(100vh) rotate(0deg) scale(0); opacity: 0; }
-      10% { opacity: 1; transform: translateY(90vh) rotate(20deg) scale(1); }
-      90% { opacity: 0.8; }
-      100% { transform: translateY(-10vh) rotate(360deg) scale(0.5); opacity: 0; }
+    :root {
+      --cream: #FFF8F0;
+      --ivory: #FEFAF3;
+      --gold-light: #F5D78E;
+      --gold: #D4A843;
+      --gold-deep: #B8860B;
+      --crimson: #C41E3A;
+      --crimson-deep: #8B0023;
+      --crimson-dark: #5C0018;
+      --blush: #F4C2C2;
+      --rose: #E8A0A0;
+      --bg-dark: #0D0208;
     }
-    @keyframes floatUpSlow {
-      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-      15% { opacity: 0.6; }
-      85% { opacity: 0.4; }
-      100% { transform: translateY(-10vh) rotate(180deg); opacity: 0; }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { overflow-x: hidden; }
+    body { background: var(--bg-dark); font-family: 'Outfit', sans-serif; }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes floatUp {
+      0% { transform: translateY(110vh) rotate(0deg) scale(0.3); opacity: 0; }
+      8% { opacity: 1; transform: translateY(95vh) rotate(15deg) scale(1); }
+      92% { opacity: 0.6; }
+      100% { transform: translateY(-15vh) rotate(360deg) scale(0.4); opacity: 0; }
     }
     @keyframes sparkle {
       0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
       50% { opacity: 1; transform: scale(1) rotate(180deg); }
     }
-    @keyframes pulse-glow {
-      0%, 100% { box-shadow: 0 0 20px rgba(212, 168, 67, 0.3), 0 0 40px rgba(196, 30, 58, 0.2); }
-      50% { box-shadow: 0 0 30px rgba(212, 168, 67, 0.5), 0 0 60px rgba(196, 30, 58, 0.3); }
-    }
-    @keyframes pulse-text {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.02); }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 20px rgba(212,168,67,0.3), 0 0 40px rgba(196,30,58,0.15); }
+      50% { box-shadow: 0 0 35px rgba(212,168,67,0.5), 0 0 70px rgba(196,30,58,0.25); }
     }
     @keyframes breathe {
-      0%, 100% { opacity: 0.7; }
+      0%, 100% { opacity: 0.6; }
       50% { opacity: 1; }
     }
     @keyframes shake {
       0%, 100% { transform: translateX(0); }
-      10% { transform: translateX(-8px) rotate(-1deg); }
-      20% { transform: translateX(8px) rotate(1deg); }
-      30% { transform: translateX(-6px) rotate(-0.5deg); }
-      40% { transform: translateX(6px) rotate(0.5deg); }
-      50% { transform: translateX(-4px); }
-      60% { transform: translateX(4px); }
-      70% { transform: translateX(-2px); }
-      80% { transform: translateX(2px); }
+      10% { transform: translateX(-10px) rotate(-1.5deg); }
+      20% { transform: translateX(10px) rotate(1.5deg); }
+      30% { transform: translateX(-8px) rotate(-1deg); }
+      40% { transform: translateX(8px) rotate(1deg); }
+      50% { transform: translateX(-5px); }
+      60% { transform: translateX(5px); }
+      70% { transform: translateX(-3px); }
+      80% { transform: translateX(3px); }
       90% { transform: translateX(-1px); }
     }
-    @keyframes envelope-open {
-      0% { transform: rotateX(0deg); }
-      100% { transform: rotateX(-180deg); }
-    }
-    @keyframes slide-up-letter {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-60px); }
-    }
     @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-    @keyframes scaleIn {
-      0% { opacity: 0; transform: scale(0.5); }
-      50% { transform: scale(1.1); }
-      100% { opacity: 1; transform: scale(1); }
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
     @keyframes bounceIn {
-      0% { opacity: 0; transform: scale(0.3); }
-      50% { transform: scale(1.05); }
+      0% { opacity: 0; transform: scale(0.2); }
+      50% { transform: scale(1.08); }
       70% { transform: scale(0.95); }
       100% { opacity: 1; transform: scale(1); }
     }
     @keyframes confettiFall {
       0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(110vh) rotate(720deg); opacity: 0.5; }
-    }
-    @keyframes confettiDrift {
-      0%, 100% { transform: translateX(0); }
-      25% { transform: translateX(15px); }
-      75% { transform: translateX(-15px); }
+      100% { transform: translateY(115vh) rotate(720deg); opacity: 0.4; }
     }
     @keyframes shimmer {
       0% { background-position: -200% center; }
@@ -130,41 +98,46 @@
     }
     @keyframes heartBeat {
       0%, 100% { transform: scale(1); }
-      14% { transform: scale(1.15); }
+      14% { transform: scale(1.18); }
       28% { transform: scale(1); }
-      42% { transform: scale(1.15); }
+      42% { transform: scale(1.18); }
       56% { transform: scale(1); }
-    }
-    @keyframes runaway {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(var(--tx), var(--ty)); }
     }
     @keyframes wiggle {
       0%, 100% { transform: rotate(0deg); }
-      25% { transform: rotate(-5deg); }
-      75% { transform: rotate(5deg); }
-    }
-    @keyframes growPulse {
-      0%, 100% { transform: scale(var(--yes-scale, 1)); }
-      50% { transform: scale(calc(var(--yes-scale, 1) * 1.05)); }
+      20% { transform: rotate(-8deg); }
+      40% { transform: rotate(8deg); }
+      60% { transform: rotate(-5deg); }
+      80% { transform: rotate(5deg); }
     }
     @keyframes slideInMemory {
-      0% { opacity: 0; transform: translateY(20px) scale(0.95); }
+      0% { opacity: 0; transform: translateY(30px) scale(0.92); }
       100% { opacity: 1; transform: translateY(0) scale(1); }
     }
-    @keyframes gentleBob {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-6px); }
+    @keyframes countdownTick {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.04); }
     }
-    @keyframes countdownPulse {
-      0%, 100% { transform: scale(1); opacity: 0.9; }
-      50% { transform: scale(1.05); opacity: 1; }
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.7; }
+    }
+    @keyframes orbFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(30px, -20px) scale(1.1); }
+      50% { transform: translate(-10px, -40px) scale(0.95); }
+      75% { transform: translate(-30px, -10px) scale(1.05); }
+    }
+    @keyframes screenFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes letterFloat {
+      0% { transform: translateY(20px) rotateX(30deg); opacity: 0; }
+      100% { transform: translateY(0) rotateX(0deg); opacity: 1; }
     }
 
-    .screen-shake {
-      animation: shake 0.5s ease-in-out;
-    }
-
+    .screen-shake { animation: shake 0.5s ease-in-out; }
     .floating-heart {
       position: fixed;
       pointer-events: none;
@@ -177,40 +150,40 @@
       z-index: 0;
       animation: sparkle ease-in-out infinite;
     }
+    .memory-card { animation: slideInMemory 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
 
-    .yes-btn-shimmer {
-      background-size: 200% auto;
-      animation: shimmer 3s linear infinite;
+    /* Background */
+    .romantic-bg {
+      background:
+        radial-gradient(ellipse at 20% 10%, rgba(196,30,58,0.2) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 90%, rgba(184,134,11,0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(92,0,24,0.35) 0%, transparent 60%),
+        var(--bg-dark);
+      min-height: 100vh;
+      animation: screenFadeIn 0.6s ease-out;
     }
 
-    .memory-card {
-      animation: slideInMemory 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    }
-
-    /* Noise texture overlay */
-    .noise-overlay::before {
+    /* Noise overlay */
+    .noise-overlay::after {
       content: '';
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      opacity: 0.03;
+      inset: 0;
+      opacity: 0.025;
       z-index: 1;
       pointer-events: none;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
-    /* Radial gradient background */
-    .romantic-bg {
-      background: radial-gradient(ellipse at 30% 20%, rgba(139, 0, 35, 0.4) 0%, transparent 50%),
-                  radial-gradient(ellipse at 70% 80%, rgba(184, 134, 11, 0.15) 0%, transparent 50%),
-                  radial-gradient(ellipse at 50% 50%, rgba(92, 0, 24, 0.6) 0%, transparent 70%),
-                  linear-gradient(180deg, #1a0008 0%, #2a0010 30%, #1a0008 100%);
-    }
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(196,30,58,0.2); border-radius: 2px; }
 
-    /* Scrollbar styling */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: rgba(26, 0, 8, 0.5); }
-    ::-webkit-scrollbar-thumb { background: rgba(196, 30, 58, 0.3); border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: rgba(196, 30, 58, 0.5); }
+    /* Gold divider */
+    .gold-line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212,168,67,0.3), transparent);
+    }
   </style>
 </head>
 <body class="noise-overlay">
@@ -219,63 +192,109 @@
   <script type="text/babel">
     const { useState, useEffect, useRef, useCallback, useMemo } = React;
 
-    // ===== CONSTANTS =====
     const WEDDING_DATE = new Date('2026-02-20T00:00:00');
 
     const NO_MEMORIES = [
       {
-        text: "Really? You're saying no to the guy who's taken you from San Francisco to wine country to Nepal and back? We've literally traveled the world together and you're clicking NO? 🌍✈️",
+        text: "Really? You're saying no to the guy who spotted you across the table at Red Panda Restaurant in Queens back in 2019 and thought 'yep, that's the one'? It was a friend's dinner party, Simran. You weren't even supposed to be that pretty. \u{1F377}",
         nextBtn: "Are you sure?"
       },
       {
-        text: "The man who DESTROYS you in Just Dance every single night and still lets you pick the next song… and THIS is how you repay me? 🕺💃",
+        text: "We had our first Valentine's Day in MASKS during a whole pandemic and STILL made it romantic. COVID couldn't stop us and you think a little 'No' button can?! \u{1F637}\u{1F495}",
         nextBtn: "Really sure?"
       },
       {
-        text: "I stare at you every single night while you sleep because I still can't believe you're real. That's not creepy, that's LOVE. Say yes. 🥺🌙",
+        text: "Remember our first vacation to Estes Park and Loveland Pass in Colorado? We literally stood at the Continental Divide at 11,990 feet. You and me against the WORLD at the top of a mountain \u{2014} and now you're clicking No from your couch? \u{1F3D4}\uFE0F",
         nextBtn: "Super sure?"
       },
       {
-        text: "We're about to be matching New Balance couple 👟👟 You really want to throw away coordinated sneaker game like that? Think about the Instagram photos, Simran.",
+        text: "We painted matching beach sunset cocktail paintings at Lincoln Center and you looked at me with paint on your nose and I knew I was done for. You're really saying no to THAT guy? \u{1F3A8}",
+        nextBtn: "Completely sure?"
+      },
+      {
+        text: "You wore Minnie Mouse ears at DisneyLand and I didn't even make fun of you (much). That's what true love looks like, and you're out here pressing No? \u{1F3F0}\u{1F42D}",
+        nextBtn: "Positive?"
+      },
+      {
+        text: "We watched LIONS together in the Masai Mara. ACTUAL LIONS, Simran. Most couples argue about what to watch on Netflix \u{2014} we were on safari in Kenya. And you're clicking No?! \u{1F981}\u{1F30D}",
+        nextBtn: "For real?"
+      },
+      {
+        text: "We've been to Yellowstone, Grand Teton, the Virgin Islands, Colorado, California, Orlando, Kenya \u{2014} basically everywhere except the moon. And you're clicking NO? I'll book the moon trip. Don't test me. \u{1F319}\u{1F680}",
+        nextBtn: "Absolutely sure?"
+      },
+      {
+        text: "We survived Stairway to Heaven hike in New Jersey together. I watched you climb actual rocks with those little legs. If that's not love, what is? \u{1F97E}",
+        nextBtn: "No takebacks?"
+      },
+      {
+        text: "We literally BOUGHT A HOUSE together. A WHOLE HOUSE. With walls and a roof and everything. You signed the papers, Simran. You're locked in. The mortgage says yes even if you won't. \u{1F3E1}",
+        nextBtn: "Really truly?"
+      },
+      {
+        text: "I got down on one knee overlooking the Queensboro Bridge on December 28th, 2023, and you said YES THEN. We went to the Marriage Bureau THE NEXT DAY. You can't reverse a whole proposal AND a legal ceremony with this No button \u{2014} that's not how this works!! \u{1F48D}\u{2728}",
         nextBtn: "Final answer?"
       },
       {
-        text: "I literally booked us an overwater villa in the Maldives for our honeymoon 🏝️ You're about to wake up above the ocean with me and you're STILL saying no?!",
-        nextBtn: "No ❌"
+        text: "We're literally planning a WHOLE WEDDING in Kathmandu and Chitwan right now. Venue booked. Lehenga picked. You really think this little No button is going to undo ALL of that?! \u{1F1F3}\u{1F1F5}\u{2728}",
+        nextBtn: "No \u{274C}"
       },
     ];
 
     const CONFETTI_COLORS = [
       '#C41E3A', '#D4A843', '#F5D78E', '#E8434A', '#F4C2C2',
       '#B8860B', '#FF6B6B', '#FFD700', '#FF9999', '#FFDAB9',
-      '#E8A0A0', '#FF4444', '#FFA500', '#FFE4B5', '#DC143C'
+      '#E8A0A0', '#DC143C', '#FFA500', '#FFE4B5', '#8B0023'
     ];
 
-    // ===== FLOATING ELEMENTS COMPONENT =====
+    // ===== AMBIENT ORBS =====
+    function AmbientOrbs() {
+      return (
+        <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+          <div className="absolute rounded-full" style={{
+            width: '400px', height: '400px', top: '-10%', left: '-5%',
+            background: 'radial-gradient(circle, rgba(196,30,58,0.08) 0%, transparent 70%)',
+            animation: 'orbFloat 20s ease-in-out infinite',
+          }} />
+          <div className="absolute rounded-full" style={{
+            width: '350px', height: '350px', bottom: '-5%', right: '-8%',
+            background: 'radial-gradient(circle, rgba(184,134,11,0.06) 0%, transparent 70%)',
+            animation: 'orbFloat 25s ease-in-out infinite reverse',
+          }} />
+          <div className="absolute rounded-full" style={{
+            width: '250px', height: '250px', top: '40%', left: '60%',
+            background: 'radial-gradient(circle, rgba(196,30,58,0.05) 0%, transparent 70%)',
+            animation: 'orbFloat 18s ease-in-out infinite 5s',
+          }} />
+        </div>
+      );
+    }
+
+    // ===== FLOATING ELEMENTS =====
     function FloatingElements({ intensity = 1 }) {
       const elements = useMemo(() => {
         const hearts = [];
         const sparkles = [];
-        const count = Math.floor(18 * intensity);
+        const count = Math.floor(15 * intensity);
         for (let i = 0; i < count; i++) {
           hearts.push({
             id: `h-${i}`,
             left: `${Math.random() * 100}%`,
-            size: 12 + Math.random() * 20,
-            duration: 8 + Math.random() * 12,
-            delay: Math.random() * 15,
-            opacity: 0.15 + Math.random() * 0.25,
+            size: 10 + Math.random() * 18,
+            duration: 10 + Math.random() * 15,
+            delay: Math.random() * 20,
+            opacity: 0.1 + Math.random() * 0.2,
             color: ['#D4A843', '#F5D78E', '#C41E3A', '#E8434A', '#B8860B', '#F4C2C2'][Math.floor(Math.random() * 6)],
           });
         }
-        for (let i = 0; i < Math.floor(12 * intensity); i++) {
+        for (let i = 0; i < Math.floor(10 * intensity); i++) {
           sparkles.push({
             id: `s-${i}`,
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
-            size: 3 + Math.random() * 5,
-            duration: 2 + Math.random() * 4,
-            delay: Math.random() * 6,
+            size: 2 + Math.random() * 4,
+            duration: 3 + Math.random() * 5,
+            delay: Math.random() * 8,
           });
         }
         return { hearts, sparkles };
@@ -284,116 +303,56 @@
       return (
         <>
           {elements.hearts.map(h => (
-            <div
-              key={h.id}
-              className="floating-heart"
-              style={{
-                left: h.left,
-                animationDuration: `${h.duration}s`,
-                animationDelay: `${h.delay}s`,
-                opacity: h.opacity,
-                color: h.color,
-                fontSize: `${h.size}px`,
-              }}
-            >
-              ♥
+            <div key={h.id} className="floating-heart"
+              style={{ left: h.left, animationDuration: `${h.duration}s`, animationDelay: `${h.delay}s`, opacity: h.opacity, color: h.color, fontSize: `${h.size}px` }}>
+              {Math.random() > 0.5 ? '\u2665' : '\u2764'}
             </div>
           ))}
           {elements.sparkles.map(s => (
-            <div
-              key={s.id}
-              className="floating-sparkle"
-              style={{
-                left: s.left,
-                top: s.top,
-                animationDuration: `${s.duration}s`,
-                animationDelay: `${s.delay}s`,
-                width: `${s.size}px`,
-                height: `${s.size}px`,
-                borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(245,215,142,0.9) 0%, transparent 70%)',
-              }}
+            <div key={s.id} className="floating-sparkle"
+              style={{ left: s.left, top: s.top, animationDuration: `${s.duration}s`, animationDelay: `${s.delay}s`, width: `${s.size}px`, height: `${s.size}px`, borderRadius: '50%', background: 'radial-gradient(circle, rgba(245,215,142,0.8) 0%, transparent 70%)' }}
             />
           ))}
         </>
       );
     }
 
-    // ===== CONFETTI COMPONENT =====
+    // ===== CONFETTI =====
     function Confetti() {
-      const pieces = useMemo(() => {
-        return Array.from({ length: 120 }, (_, i) => ({
-          id: i,
-          left: `${Math.random() * 100}%`,
-          color: CONFETTI_COLORS[Math.floor(Math.random() * CONFETTI_COLORS.length)],
-          size: 6 + Math.random() * 10,
-          duration: 2.5 + Math.random() * 3,
-          delay: Math.random() * 2.5,
-          drift: -30 + Math.random() * 60,
-          rotation: Math.random() * 720,
-          shape: Math.random() > 0.5 ? 'circle' : 'rect',
-        }));
-      }, []);
+      const pieces = useMemo(() => Array.from({ length: 150 }, (_, i) => ({
+        id: i,
+        left: `${Math.random() * 100}%`,
+        color: CONFETTI_COLORS[Math.floor(Math.random() * CONFETTI_COLORS.length)],
+        w: 4 + Math.random() * 8,
+        h: 6 + Math.random() * 12,
+        duration: 2.5 + Math.random() * 4,
+        delay: Math.random() * 3,
+        drift: -40 + Math.random() * 80,
+        shape: Math.random(),
+      })), []);
 
       return (
         <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden">
           {pieces.map(p => (
-            <div
-              key={p.id}
-              style={{
-                position: 'absolute',
-                left: p.left,
-                top: '-2%',
-                width: p.shape === 'circle' ? `${p.size}px` : `${p.size * 0.6}px`,
-                height: `${p.size}px`,
-                background: p.color,
-                borderRadius: p.shape === 'circle' ? '50%' : '2px',
-                animation: `confettiFall ${p.duration}s ${p.delay}s linear infinite`,
-                transform: `translateX(${p.drift}px)`,
-                opacity: 0.9,
-              }}
-            />
+            <div key={p.id} style={{
+              position: 'absolute', left: p.left, top: '-3%',
+              width: p.shape > 0.6 ? `${p.w}px` : p.shape > 0.3 ? `${p.w}px` : '0',
+              height: p.shape > 0.6 ? `${p.h}px` : p.shape > 0.3 ? `${p.w}px` : '0',
+              background: p.color,
+              borderRadius: p.shape > 0.6 ? '2px' : p.shape > 0.3 ? '50%' : '0',
+              borderLeft: p.shape <= 0.3 ? `${p.w/2}px solid transparent` : 'none',
+              borderRight: p.shape <= 0.3 ? `${p.w/2}px solid transparent` : 'none',
+              borderBottom: p.shape <= 0.3 ? `${p.h}px solid ${p.color}` : 'none',
+              animation: `confettiFall ${p.duration}s ${p.delay}s linear infinite`,
+              transform: `translateX(${p.drift}px)`,
+              opacity: 0.85,
+            }} />
           ))}
         </div>
       );
     }
 
-    // ===== CELEBRATION HEARTS =====
-    function CelebrationHearts() {
-      const hearts = useMemo(() => {
-        return Array.from({ length: 30 }, (_, i) => ({
-          id: i,
-          left: `${Math.random() * 100}%`,
-          size: 16 + Math.random() * 28,
-          duration: 4 + Math.random() * 6,
-          delay: Math.random() * 5,
-          color: CONFETTI_COLORS[Math.floor(Math.random() * CONFETTI_COLORS.length)],
-        }));
-      }, []);
-
-      return (
-        <>
-          {hearts.map(h => (
-            <div
-              key={h.id}
-              className="floating-heart"
-              style={{
-                left: h.left,
-                fontSize: `${h.size}px`,
-                animationDuration: `${h.duration}s`,
-                animationDelay: `${h.delay}s`,
-                color: h.color,
-                opacity: 0.7,
-              }}
-            >
-              ♥
-            </div>
-          ))}
-        </>
-      );
-    }
-
-    // ===== COUNTDOWN COMPONENT =====
+    // ===== COUNTDOWN =====
     function Countdown() {
       const [now, setNow] = useState(new Date());
       useEffect(() => {
@@ -402,32 +361,25 @@
       }, []);
 
       const diff = WEDDING_DATE - now;
-      const days = Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24)));
-      const hours = Math.max(0, Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
-      const minutes = Math.max(0, Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)));
-      const seconds = Math.max(0, Math.floor((diff % (1000 * 60)) / 1000));
+      const days = Math.max(0, Math.floor(diff / (1000*60*60*24)));
+      const hours = Math.max(0, Math.floor((diff % (1000*60*60*24)) / (1000*60*60)));
+      const minutes = Math.max(0, Math.floor((diff % (1000*60*60)) / (1000*60)));
+      const seconds = Math.max(0, Math.floor((diff % (1000*60)) / 1000));
 
       return (
-        <div className="flex items-center justify-center gap-3 sm:gap-5 mt-8" style={{ animation: 'countdownPulse 3s ease-in-out infinite' }}>
+        <div className="flex items-center justify-center gap-4 sm:gap-6 mt-6">
           {[
-            { val: days, label: 'Days' },
-            { val: hours, label: 'Hours' },
-            { val: minutes, label: 'Min' },
-            { val: seconds, label: 'Sec' },
+            { val: days, label: 'days' },
+            { val: hours, label: 'hours' },
+            { val: minutes, label: 'min' },
+            { val: seconds, label: 'sec' },
           ].map((item, i) => (
             <div key={i} className="flex flex-col items-center">
-              <div
-                className="font-display text-3xl sm:text-4xl font-bold"
-                style={{
-                  color: '#F5D78E',
-                  textShadow: '0 0 20px rgba(212,168,67,0.4)',
-                  minWidth: '60px',
-                  textAlign: 'center',
-                }}
-              >
+              <div className="font-display text-4xl sm:text-5xl font-light italic"
+                style={{ color: '#F5D78E', textShadow: '0 0 25px rgba(212,168,67,0.3)', minWidth: '55px', textAlign: 'center', animation: 'countdownTick 2s ease-in-out infinite', animationDelay: `${i * 0.15}s` }}>
                 {String(item.val).padStart(2, '0')}
               </div>
-              <div className="font-body text-xs sm:text-sm mt-1" style={{ color: '#E8A0A0' }}>
+              <div className="font-body text-[10px] sm:text-xs mt-1 uppercase tracking-[0.2em] font-light" style={{ color: 'rgba(232,160,160,0.5)' }}>
                 {item.label}
               </div>
             </div>
@@ -436,7 +388,7 @@
       );
     }
 
-    // ===== ENVELOPE COMPONENT =====
+    // ===== ENVELOPE =====
     function Envelope({ onOpen }) {
       const [opening, setOpening] = useState(false);
       const [opened, setOpened] = useState(false);
@@ -445,88 +397,64 @@
         if (opening) return;
         setOpening(true);
         setTimeout(() => setOpened(true), 800);
-        setTimeout(() => onOpen(), 1600);
+        setTimeout(() => onOpen(), 1500);
       };
 
       return (
-        <div
-          className="cursor-pointer relative mx-auto"
-          onClick={handleClick}
-          style={{
-            width: 'min(320px, 80vw)',
-            height: 'min(220px, 55vw)',
-            perspective: '800px',
-          }}
-        >
-          {/* Envelope body */}
-          <div
-            className="absolute inset-0 rounded-lg"
-            style={{
-              background: 'linear-gradient(135deg, #C41E3A 0%, #8B0023 100%)',
-              boxShadow: '0 10px 40px rgba(196,30,58,0.4), 0 0 60px rgba(196,30,58,0.1)',
-              border: '1px solid rgba(245,215,142,0.2)',
-            }}
-          />
-
-          {/* Inner shadow / letter peek */}
-          <div
-            className="absolute rounded"
-            style={{
-              top: '15%', left: '8%', right: '8%', bottom: '10%',
-              background: opened ? 'transparent' : 'linear-gradient(180deg, #FFF8F0 0%, #FEFAF3 100%)',
-              transition: 'transform 0.8s ease-out, opacity 0.3s',
-              transform: opened ? 'translateY(-70px)' : 'translateY(0)',
-              opacity: opened ? 0 : 1,
-              boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
-            }}
-          >
-            <div className="p-4 text-center" style={{ color: '#5C0018' }}>
-              <div className="font-script text-lg sm:text-xl mb-1" style={{ color: '#C41E3A' }}>For Simran</div>
-              <div className="font-body text-xs" style={{ color: '#8B0023', opacity: 0.6 }}>with all my love</div>
-              <div className="mt-3" style={{ fontSize: '24px' }}>💌</div>
+        <div className="cursor-pointer relative mx-auto" onClick={handleClick}
+          style={{ width: 'min(300px, 75vw)', height: 'min(210px, 52vw)', perspective: '800px' }}>
+          {/* Body */}
+          <div className="absolute inset-0 rounded-xl" style={{
+            background: 'linear-gradient(145deg, #C41E3A 0%, #7A0020 100%)',
+            boxShadow: '0 15px 50px rgba(196,30,58,0.35), 0 0 80px rgba(196,30,58,0.08)',
+            border: '1px solid rgba(245,215,142,0.12)',
+          }} />
+          {/* Gold trim */}
+          <div className="absolute rounded-xl" style={{
+            inset: '6px',
+            border: '1px solid rgba(212,168,67,0.15)',
+            borderRadius: '10px',
+          }} />
+          {/* Letter */}
+          <div className="absolute rounded-lg" style={{
+            top: '14%', left: '10%', right: '10%', bottom: '12%',
+            background: opened ? 'transparent' : 'linear-gradient(180deg, #FFFBF2 0%, #FFF5E6 100%)',
+            transition: 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s',
+            transform: opened ? 'translateY(-80px)' : 'translateY(0)',
+            opacity: opened ? 0 : 1,
+            boxShadow: '0 2px 15px rgba(0,0,0,0.1)',
+          }}>
+            <div className="flex flex-col items-center justify-center h-full p-4">
+              <div className="font-script text-xl sm:text-2xl" style={{ color: '#8B0023' }}>For Simran</div>
+              <div className="font-body text-[10px] mt-1 tracking-widest uppercase font-light" style={{ color: '#B8860B', opacity: 0.7 }}>with all my love</div>
+              <div className="mt-2 text-xl">{'\u{1F48C}'}</div>
             </div>
           </div>
-
           {/* Flap */}
-          <div
-            style={{
-              position: 'absolute',
-              top: 0, left: 0, right: 0,
-              height: '50%',
-              transformOrigin: 'top center',
-              transform: opening ? 'rotateX(-180deg)' : 'rotateX(0deg)',
-              transition: 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
-              zIndex: opening ? 0 : 2,
-            }}
-          >
-            <div
-              className="w-full h-full"
-              style={{
-                background: 'linear-gradient(180deg, #C41E3A 0%, #A01830 100%)',
-                clipPath: 'polygon(0 0, 50% 100%, 100% 0)',
-                borderRadius: '8px 8px 0 0',
-                border: '1px solid rgba(245,215,142,0.15)',
-              }}
-            />
+          <div style={{
+            position: 'absolute', top: 0, left: 0, right: 0, height: '50%',
+            transformOrigin: 'top center',
+            transform: opening ? 'rotateX(-180deg)' : 'rotateX(0deg)',
+            transition: 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+            zIndex: opening ? 0 : 2,
+          }}>
+            <div className="w-full h-full" style={{
+              background: 'linear-gradient(180deg, #C41E3A 0%, #9A1530 100%)',
+              clipPath: 'polygon(0 0, 50% 100%, 100% 0)',
+              borderRadius: '12px 12px 0 0',
+            }} />
           </div>
-
           {/* Seal */}
           {!opening && (
-            <div
-              className="absolute z-10"
-              style={{
-                top: '50%', left: '50%',
-                transform: 'translate(-50%, -50%)',
-                width: '48px', height: '48px',
-                borderRadius: '50%',
-                background: 'radial-gradient(circle, #F5D78E 0%, #D4A843 60%, #B8860B 100%)',
-                boxShadow: '0 2px 10px rgba(184,134,11,0.5)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: '20px',
-                animation: 'breathe 2s ease-in-out infinite',
-              }}
-            >
-              ♥
+            <div className="absolute z-10" style={{
+              top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
+              width: '44px', height: '44px', borderRadius: '50%',
+              background: 'radial-gradient(circle at 35% 35%, #F5D78E 0%, #D4A843 50%, #B8860B 100%)',
+              boxShadow: '0 3px 15px rgba(184,134,11,0.5), inset 0 1px 2px rgba(255,255,255,0.3)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontSize: '18px', animation: 'breathe 2.5s ease-in-out infinite',
+            }}>
+              {'\u2665'}
             </div>
           )}
         </div>
@@ -535,7 +463,7 @@
 
     // ===== MAIN APP =====
     function App() {
-      const [screen, setScreen] = useState('opening'); // opening, question, yes
+      const [screen, setScreen] = useState('opening');
       const [noCount, setNoCount] = useState(0);
       const [currentMemory, setCurrentMemory] = useState(null);
       const [memoryKey, setMemoryKey] = useState(0);
@@ -544,162 +472,112 @@
       const [showText, setShowText] = useState(false);
       const [showButton, setShowButton] = useState(false);
       const [questionVisible, setQuestionVisible] = useState(false);
-      const [yesVisible, setYesVisible] = useState(false);
-      const [yesMessage, setYesMessage] = useState(0); // 0 = I KNEW IT, 1 = full message
+      const [yesMessage, setYesMessage] = useState(0);
       const [noBtnPos, setNoBtnPos] = useState(null);
-      const noBtnRef = useRef(null);
       const containerRef = useRef(null);
       const lastDodgeTime = useRef(0);
 
-      // Opening screen sequencing
+      const totalMemories = NO_MEMORIES.length;
+      const isRunaway = noCount > totalMemories;
+
       useEffect(() => {
         if (screen === 'opening') {
-          const t1 = setTimeout(() => setShowText(true), 800);
-          const t2 = setTimeout(() => setShowButton(true), 1800);
+          const t1 = setTimeout(() => setShowText(true), 600);
+          const t2 = setTimeout(() => setShowButton(true), 1600);
           return () => { clearTimeout(t1); clearTimeout(t2); };
         }
       }, [screen]);
 
-      // Question screen animation
       useEffect(() => {
         if (screen === 'question') {
-          const t = setTimeout(() => setQuestionVisible(true), 300);
+          const t = setTimeout(() => setQuestionVisible(true), 200);
           return () => clearTimeout(t);
         }
       }, [screen]);
 
-      // Yes screen sequencing
       useEffect(() => {
         if (screen === 'yes') {
-          setYesVisible(true);
           const t = setTimeout(() => setYesMessage(1), 3500);
           return () => clearTimeout(t);
         }
       }, [screen]);
 
       const handleNo = useCallback(() => {
-        if (noCount >= 5) return; // after 5, button runs away
+        if (isRunaway) return;
 
-        // Screen shake
         setShaking(true);
         setTimeout(() => setShaking(false), 500);
 
         const newCount = noCount + 1;
         setNoCount(newCount);
 
-        if (newCount <= 5) {
+        if (newCount <= totalMemories) {
           setCurrentMemory(NO_MEMORIES[newCount - 1]);
           setMemoryKey(prev => prev + 1);
         }
-      }, [noCount]);
+      }, [noCount, isRunaway, totalMemories]);
 
-      const handleYes = useCallback(() => {
-        setScreen('yes');
-      }, []);
+      const handleYes = useCallback(() => setScreen('yes'), []);
 
-      // Runaway button logic (desktop)
-      const handleNoMouseEnter = useCallback((e) => {
-        if (noCount < 5) return;
+      const dodgeButton = useCallback(() => {
+        if (!isRunaway) return;
         const now = Date.now();
-        if (now - lastDodgeTime.current < 100) return;
+        if (now - lastDodgeTime.current < 80) return;
         lastDodgeTime.current = now;
-
         const container = containerRef.current;
         if (!container) return;
         const rect = container.getBoundingClientRect();
-        const btnW = 140, btnH = 48;
-        const maxX = rect.width - btnW - 20;
-        const maxY = rect.height - btnH - 20;
-        const newX = 20 + Math.random() * maxX;
-        const newY = 20 + Math.random() * maxY;
-        setNoBtnPos({ x: newX, y: newY });
-      }, [noCount]);
+        const btnW = 130, btnH = 44;
+        const padX = 15, padY = 15;
+        const maxX = rect.width - btnW - padX;
+        const maxY = rect.height - btnH - padY;
+        setNoBtnPos({ x: padX + Math.random() * maxX, y: padY + Math.random() * maxY });
+      }, [isRunaway]);
 
-      // Runaway button logic (mobile)
-      const handleNoTouchStart = useCallback((e) => {
-        if (noCount < 5) return;
-        e.preventDefault();
-        const container = containerRef.current;
-        if (!container) return;
-        const rect = container.getBoundingClientRect();
-        const btnW = 140, btnH = 48;
-        const maxX = rect.width - btnW - 20;
-        const maxY = rect.height - btnH - 20;
-        const newX = 20 + Math.random() * maxX;
-        const newY = 20 + Math.random() * maxY;
-        setNoBtnPos({ x: newX, y: newY });
-      }, [noCount]);
+      const noButtonText = noCount === 0 ? 'No'
+        : noCount <= totalMemories ? NO_MEMORIES[noCount - 1].nextBtn
+        : 'No \u{274C}';
 
-      const noButtonText = noCount === 0 ? 'No' :
-        noCount <= 5 ? NO_MEMORIES[noCount - 1].nextBtn :
-        'No ❌';
+      const yesScale = 1 + noCount * 0.06;
+      const yesGlow = 20 + noCount * 6;
 
-      const yesScale = 1 + noCount * 0.08;
-      const yesGlowIntensity = 20 + noCount * 8;
-
-      // ===== OPENING SCREEN =====
+      // ===== OPENING =====
       if (screen === 'opening') {
         return (
-          <div className="romantic-bg min-h-screen flex flex-col items-center justify-center px-6 relative overflow-hidden">
-            <FloatingElements intensity={0.7} />
+          <div className="romantic-bg flex flex-col items-center justify-center px-6 relative overflow-hidden" style={{ minHeight: '100dvh' }}>
+            <AmbientOrbs />
+            <FloatingElements intensity={0.5} />
             <div className="relative z-10 flex flex-col items-center">
-              {!envelopeOpened && (
-                <div style={{ animation: 'fadeIn 1s ease-out' }}>
-                  <Envelope onOpen={() => {
-                    setEnvelopeOpened(true);
-                  }} />
-                  <p
-                    className="font-body text-sm mt-6 text-center"
-                    style={{
-                      color: '#E8A0A0',
-                      animation: 'breathe 2s ease-in-out infinite',
-                      opacity: 0.8,
-                    }}
-                  >
+              {!envelopeOpened ? (
+                <div style={{ animation: 'fadeIn 1.2s ease-out' }}>
+                  <Envelope onOpen={() => setEnvelopeOpened(true)} />
+                  <p className="font-body text-xs mt-8 text-center tracking-[0.15em] uppercase font-light"
+                    style={{ color: 'rgba(232,160,160,0.5)', animation: 'breathe 2.5s ease-in-out infinite' }}>
                     tap to open
                   </p>
                 </div>
-              )}
-
-              {envelopeOpened && (
-                <div className="text-center" style={{ animation: 'fadeInUp 0.8s ease-out' }}>
-                  <p
-                    className="font-script text-4xl sm:text-5xl mb-4"
-                    style={{
-                      color: '#F5D78E',
-                      textShadow: '0 0 30px rgba(245,215,142,0.3)',
-                      animation: showText ? 'fadeInUp 0.8s ease-out' : 'none',
-                      opacity: showText ? 1 : 0,
-                    }}
-                  >
-                    Hey Simran…
+              ) : (
+                <div className="text-center max-w-sm">
+                  <p className="font-script text-5xl sm:text-6xl mb-5"
+                    style={{ color: '#F5D78E', textShadow: '0 0 40px rgba(245,215,142,0.25)', animation: showText ? 'fadeInUp 0.8s ease-out' : 'none', opacity: showText ? 1 : 0 }}>
+                    Hey Simran...
                   </p>
                   {showText && (
-                    <p
-                      className="font-body text-xl sm:text-2xl mb-10"
-                      style={{
-                        color: '#F4C2C2',
-                        maxWidth: '400px',
-                        lineHeight: 1.6,
-                        animation: 'fadeInUp 0.8s 0.3s ease-out both',
-                      }}
-                    >
-                      I have a very important question for you 💕
+                    <p className="font-display text-xl sm:text-2xl italic font-light mb-12"
+                      style={{ color: '#F4C2C2', lineHeight: 1.6, animation: 'fadeInUp 0.8s 0.3s ease-out both' }}>
+                      I have a very important question for you {'\u{1F495}'}
                     </p>
                   )}
                   {showButton && (
-                    <button
-                      onClick={() => setScreen('question')}
-                      className="font-display text-lg sm:text-xl px-10 py-4 rounded-full transition-all duration-300 hover:scale-105 active:scale-95"
+                    <button onClick={() => setScreen('question')}
+                      className="font-body text-sm sm:text-base px-10 py-4 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 uppercase tracking-[0.2em] font-light"
                       style={{
                         background: 'linear-gradient(135deg, #C41E3A 0%, #8B0023 100%)',
                         color: '#FFF8F0',
-                        border: '1px solid rgba(245,215,142,0.3)',
-                        boxShadow: '0 0 30px rgba(196,30,58,0.4), 0 4px 20px rgba(0,0,0,0.3)',
-                        animation: 'fadeInUp 0.6s ease-out, pulse-glow 2s ease-in-out infinite',
-                        letterSpacing: '0.05em',
-                      }}
-                    >
+                        border: '1px solid rgba(245,215,142,0.2)',
+                        boxShadow: '0 0 30px rgba(196,30,58,0.3), 0 8px 30px rgba(0,0,0,0.3)',
+                        animation: 'fadeInUp 0.6s ease-out, pulseGlow 2.5s ease-in-out infinite',
+                      }}>
                       Continue
                     </button>
                   )}
@@ -713,83 +591,59 @@
       // ===== YES SCREEN =====
       if (screen === 'yes') {
         return (
-          <div className="romantic-bg min-h-screen flex flex-col items-center justify-center px-6 relative overflow-hidden">
-            <FloatingElements intensity={1.5} />
-            <CelebrationHearts />
+          <div className="romantic-bg flex flex-col items-center justify-center px-6 relative overflow-hidden" style={{ minHeight: '100dvh' }}>
+            <AmbientOrbs />
+            <FloatingElements intensity={2} />
             <Confetti />
 
-            <div className="relative z-10 text-center max-w-lg mx-auto">
+            <div className="relative z-10 text-center max-w-md mx-auto w-full">
               {yesMessage === 0 ? (
                 <div style={{ animation: 'bounceIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)' }}>
-                  <div
-                    className="font-display text-6xl sm:text-7xl font-bold mb-4"
-                    style={{
-                      color: '#F5D78E',
-                      textShadow: '0 0 40px rgba(245,215,142,0.5), 0 0 80px rgba(196,30,58,0.3)',
-                      animation: 'heartBeat 1.5s ease-in-out infinite',
-                    }}
-                  >
-                    I KNEW IT!
+                  <div className="font-display text-7xl sm:text-8xl font-bold italic"
+                    style={{ color: '#F5D78E', textShadow: '0 0 50px rgba(245,215,142,0.4), 0 0 100px rgba(196,30,58,0.2)', animation: 'heartBeat 1.5s ease-in-out infinite' }}>
+                    I knew it!
                   </div>
-                  <div className="text-5xl" style={{ animation: 'bounceIn 0.8s 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both' }}>
-                    🥰
+                  <div className="text-5xl mt-4" style={{ animation: 'bounceIn 0.8s 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both' }}>
+                    {'\u{1F970}'}
                   </div>
                 </div>
               ) : (
                 <div style={{ animation: 'fadeInUp 1s ease-out' }}>
-                  <p
-                    className="font-script text-4xl sm:text-5xl mb-8"
-                    style={{
-                      color: '#F5D78E',
-                      textShadow: '0 0 30px rgba(245,215,142,0.3)',
-                    }}
-                  >
-                    Happy Valentine's Day, my love 💕
+                  <p className="font-script text-4xl sm:text-5xl mb-10"
+                    style={{ color: '#F5D78E', textShadow: '0 0 30px rgba(245,215,142,0.2)' }}>
+                    Happy Valentine's Day, my love {'\u{1F495}'}
                   </p>
 
-                  <div
-                    className="font-body text-lg sm:text-xl leading-relaxed space-y-5"
-                    style={{ color: '#F4C2C2' }}
-                  >
+                  <div className="font-display text-lg sm:text-xl leading-relaxed space-y-6 italic font-light" style={{ color: '#F4C2C2' }}>
                     <p style={{ animation: 'fadeInUp 0.8s 0.2s ease-out both' }}>
-                      From our adventures across the world, to our Just Dance battles at midnight, to me watching you sleep like the creep that I am…
+                      From a dinner party in Queens to a proposal by the Queensboro Bridge, from climbing mountains in Colorado to watching lions in Kenya...
                     </p>
-                    <p style={{ animation: 'fadeInUp 0.8s 0.5s ease-out both', color: '#FFF8F0' }}>
+                    <p style={{ animation: 'fadeInUp 0.8s 0.5s ease-out both' }}>
+                      From buying our first home to planning our dream wedding...
+                    </p>
+                    <p style={{ animation: 'fadeInUp 0.8s 0.8s ease-out both', color: '#FFF8F0' }}>
                       Every moment with you is my favorite moment.
                     </p>
                   </div>
 
-                  <div
-                    className="mt-10 pt-8"
-                    style={{
-                      borderTop: '1px solid rgba(245,215,142,0.15)',
-                      animation: 'fadeInUp 0.8s 0.8s ease-out both',
-                    }}
-                  >
-                    <div
-                      className="font-display text-2xl sm:text-3xl font-bold mb-2"
-                      style={{
-                        color: '#F5D78E',
-                        textShadow: '0 0 20px rgba(245,215,142,0.3)',
-                      }}
-                    >
-                      💍 Marrying my best friend in
-                    </div>
+                  <div className="gold-line my-10" style={{ animation: 'fadeIn 0.8s 1.1s ease-out both' }} />
+
+                  <div style={{ animation: 'fadeInUp 0.8s 1.2s ease-out both' }}>
+                    <p className="font-display text-2xl sm:text-3xl italic font-light mb-1" style={{ color: '#F5D78E', textShadow: '0 0 20px rgba(245,215,142,0.2)' }}>
+                      {'\u{1F48D}'} Marrying my best friend in
+                    </p>
                     <Countdown />
                   </div>
 
-                  <div
-                    className="mt-8"
-                    style={{ animation: 'fadeInUp 0.8s 1.2s ease-out both' }}
-                  >
-                    <p className="font-body text-lg" style={{ color: '#E8A0A0' }}>
-                      See you at the altar ✨
+                  <div className="gold-line my-10" style={{ animation: 'fadeIn 0.8s 1.5s ease-out both' }} />
+
+                  <div style={{ animation: 'fadeInUp 0.8s 1.6s ease-out both' }}>
+                    <p className="font-display text-xl italic font-light" style={{ color: '#E8A0A0' }}>
+                      See you at the altar {'\u{2728}'}
                     </p>
-                    <p
-                      className="font-display text-sm mt-3 tracking-widest uppercase"
-                      style={{ color: 'rgba(245,215,142,0.5)' }}
-                    >
-                      February 20, 2026 · Kathmandu & Chitwan, Nepal
+                    <p className="font-body text-[10px] mt-4 tracking-[0.25em] uppercase font-light"
+                      style={{ color: 'rgba(212,168,67,0.4)' }}>
+                      February 20, 2026 {'\u{00B7}'} Kathmandu & Chitwan, Nepal
                     </p>
                   </div>
                 </div>
@@ -801,147 +655,105 @@
 
       // ===== QUESTION SCREEN =====
       return (
-        <div
-          ref={containerRef}
-          className={`romantic-bg min-h-screen flex flex-col items-center justify-center px-6 relative overflow-hidden ${shaking ? 'screen-shake' : ''}`}
-        >
-          <FloatingElements intensity={1 + noCount * 0.15} />
+        <div ref={containerRef}
+          className={`romantic-bg flex flex-col items-center px-6 py-12 sm:py-16 relative overflow-hidden ${shaking ? 'screen-shake' : ''}`}
+          style={{ minHeight: '100dvh' }}>
+          <AmbientOrbs />
+          <FloatingElements intensity={1 + noCount * 0.1} />
 
-          <div className="relative z-10 text-center w-full max-w-xl mx-auto">
-            {/* Main Question */}
-            <div
-              style={{
-                opacity: questionVisible ? 1 : 0,
-                transform: questionVisible ? 'translateY(0)' : 'translateY(30px)',
-                transition: 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)',
-              }}
-            >
-              <h1
-                className="font-display text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-3"
-                style={{
-                  color: '#FFF8F0',
-                  textShadow: '0 0 40px rgba(245,215,142,0.2)',
-                  animation: 'pulse-text 3s ease-in-out infinite',
-                }}
-              >
+          <div className="relative z-10 text-center w-full max-w-lg mx-auto flex flex-col items-center justify-center flex-1">
+            {/* Question */}
+            <div style={{
+              opacity: questionVisible ? 1 : 0,
+              transform: questionVisible ? 'translateY(0)' : 'translateY(25px)',
+              transition: 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)',
+            }}>
+              <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-semibold italic leading-tight mb-3"
+                style={{ color: '#FFF8F0', textShadow: '0 0 50px rgba(245,215,142,0.15)' }}>
                 Will You Be My{' '}
-                <span style={{
-                  color: '#F5D78E',
-                  textShadow: '0 0 30px rgba(245,215,142,0.4)',
-                }}>
-                  Valentine?
-                </span>
-                {' '}💝
+                <span style={{ color: '#F5D78E', textShadow: '0 0 35px rgba(245,215,142,0.3)' }}>Valentine?</span>
               </h1>
-
-              <p
-                className="font-body text-base sm:text-lg mt-4 mb-10 max-w-md mx-auto"
-                style={{
-                  color: '#E8A0A0',
-                  lineHeight: 1.7,
-                  animation: 'fadeInUp 0.8s 0.4s ease-out both',
-                }}
-              >
-                Choose wisely… this is your <span style={{ color: '#F5D78E', fontWeight: 600 }}>LAST</span> year with a choice.
-                After Feb 20, you're stuck with me forever 😏
+              <p className="font-body text-sm sm:text-base mt-4 mb-8 max-w-sm mx-auto font-light"
+                style={{ color: 'rgba(232,160,160,0.7)', lineHeight: 1.7, animation: 'fadeInUp 0.8s 0.3s ease-out both' }}>
+                Choose wisely... this is your <span style={{ color: '#F5D78E', fontWeight: 500 }}>last</span> year with a choice.
+                After Feb 20, you're stuck with me forever {'\u{1F60F}'}
               </p>
             </div>
 
-            {/* Memory Display */}
+            {/* Memory card */}
             {currentMemory && (
-              <div
-                key={memoryKey}
-                className="memory-card mb-8 mx-auto max-w-md p-5 sm:p-6 rounded-2xl"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(196,30,58,0.15) 0%, rgba(184,134,11,0.1) 100%)',
-                  border: '1px solid rgba(245,215,142,0.15)',
-                  backdropFilter: 'blur(10px)',
-                  boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
-                }}
-              >
-                <p
-                  className="font-body text-base sm:text-lg italic"
-                  style={{
-                    color: '#F4C2C2',
-                    lineHeight: 1.7,
-                  }}
-                >
-                  {currentMemory.text}
-                </p>
+              <div key={memoryKey} className="memory-card mb-6 mx-auto max-w-md w-full rounded-2xl relative overflow-hidden"
+                style={{ background: 'linear-gradient(160deg, rgba(196,30,58,0.1) 0%, rgba(184,134,11,0.06) 100%)', border: '1px solid rgba(245,215,142,0.1)', backdropFilter: 'blur(12px)' }}>
+                {/* No count badge */}
+                <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-0.5 rounded-full"
+                  style={{ background: 'rgba(196,30,58,0.2)', border: '1px solid rgba(196,30,58,0.15)' }}>
+                  <span className="font-body text-[10px] font-medium" style={{ color: 'rgba(232,160,160,0.6)' }}>
+                    {noCount}/{totalMemories}
+                  </span>
+                </div>
+                <div className="p-5 sm:p-6 pt-5">
+                  <p className="font-display text-base sm:text-lg italic font-light leading-relaxed"
+                    style={{ color: '#F4C2C2', lineHeight: 1.8 }}>
+                    {currentMemory.text}
+                  </p>
+                </div>
               </div>
             )}
 
             {/* Runaway message */}
-            {noCount >= 5 && (
-              <div
-                className="mb-8 mx-auto max-w-md"
-                style={{ animation: 'fadeInUp 0.6s ease-out' }}
-              >
-                <p
-                  className="font-body text-lg"
-                  style={{ color: '#F5D78E', lineHeight: 1.7 }}
-                >
-                  The No button has officially given up. It knows what's coming. Just say yes already… 😏💕
+            {isRunaway && (
+              <div className="mb-6 mx-auto max-w-sm" style={{ animation: 'fadeInUp 0.6s ease-out' }}>
+                <p className="font-display text-lg italic font-light" style={{ color: '#F5D78E', lineHeight: 1.7 }}>
+                  The No button has officially given up. It saw our wedding photos and heard about the Nepal wedding and said "I can't compete with that." Just say yes already... {'\u{1F60F}\u{1F495}'}
                 </p>
               </div>
             )}
 
             {/* Buttons */}
-            <div
-              className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 relative"
-              style={{
-                minHeight: noCount >= 5 ? '200px' : 'auto',
-                animation: 'fadeInUp 0.8s 0.6s ease-out both',
-              }}
-            >
-              {/* YES Button */}
-              <button
-                onClick={handleYes}
-                className="font-display text-lg sm:text-xl font-semibold px-8 sm:px-10 py-4 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 yes-btn-shimmer relative overflow-hidden"
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 relative mt-4"
+              style={{ minHeight: isRunaway ? '180px' : 'auto', animation: 'fadeInUp 0.8s 0.5s ease-out both' }}>
+              {/* YES */}
+              <button onClick={handleYes}
+                className="font-body text-sm sm:text-base font-medium px-10 sm:px-12 py-4 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 uppercase tracking-[0.2em] relative overflow-hidden"
                 style={{
-                  background: `linear-gradient(90deg, #C41E3A, #D4A843, #C41E3A, #D4A843)`,
+                  background: 'linear-gradient(90deg, #C41E3A, #D4A843, #C41E3A, #D4A843)',
                   backgroundSize: '200% auto',
                   color: '#FFF8F0',
-                  border: '2px solid rgba(245,215,142,0.4)',
-                  boxShadow: `0 0 ${yesGlowIntensity}px rgba(196,30,58,0.5), 0 0 ${yesGlowIntensity * 1.5}px rgba(212,168,67,0.3), 0 4px 20px rgba(0,0,0,0.3)`,
+                  border: '1px solid rgba(245,215,142,0.3)',
+                  boxShadow: `0 0 ${yesGlow}px rgba(196,30,58,0.4), 0 0 ${yesGlow * 1.5}px rgba(212,168,67,0.2), 0 8px 30px rgba(0,0,0,0.3)`,
                   transform: `scale(${yesScale})`,
-                  animation: noCount >= 5
-                    ? 'shimmer 2s linear infinite, growPulse 1.5s ease-in-out infinite'
-                    : 'shimmer 3s linear infinite',
-                  '--yes-scale': yesScale,
-                  letterSpacing: '0.08em',
+                  animation: isRunaway ? 'shimmer 1.5s linear infinite' : 'shimmer 3s linear infinite',
                   zIndex: 20,
-                }}
-              >
-                Yes! 💕
+                }}>
+                Yes! {'\u{1F495}'}
               </button>
 
-              {/* NO Button */}
+              {/* NO */}
               <button
-                ref={noBtnRef}
-                onClick={noCount < 5 ? handleNo : undefined}
-                onMouseEnter={handleNoMouseEnter}
-                onTouchStart={handleNoTouchStart}
-                className="font-body transition-all duration-200"
+                onClick={!isRunaway ? handleNo : undefined}
+                onMouseEnter={dodgeButton}
+                onTouchStart={isRunaway ? (e) => { e.preventDefault(); dodgeButton(); } : undefined}
+                className="font-body transition-all duration-150"
                 style={{
-                  ...(noCount >= 5 && noBtnPos ? {
+                  ...(isRunaway && noBtnPos ? {
                     position: 'absolute',
                     left: `${noBtnPos.x}px`,
                     top: `${noBtnPos.y}px`,
-                    transition: 'left 0.15s ease-out, top 0.15s ease-out',
-                    animation: 'wiggle 0.3s ease-in-out infinite',
+                    transition: 'left 0.12s ease-out, top 0.12s ease-out',
+                    animation: 'wiggle 0.25s ease-in-out infinite',
                     zIndex: 10,
                   } : {}),
-                  padding: noCount >= 5 ? '8px 16px' : '10px 24px',
-                  fontSize: noCount >= 5 ? '12px' : '14px',
-                  color: noCount >= 5 ? 'rgba(232,160,160,0.4)' : 'rgba(232,160,160,0.6)',
+                  padding: isRunaway ? '6px 14px' : '10px 24px',
+                  fontSize: isRunaway ? '11px' : '13px',
+                  color: isRunaway ? 'rgba(232,160,160,0.3)' : 'rgba(232,160,160,0.5)',
                   background: 'transparent',
-                  border: `1px solid ${noCount >= 5 ? 'rgba(232,160,160,0.15)' : 'rgba(232,160,160,0.2)'}`,
+                  border: `1px solid ${isRunaway ? 'rgba(232,160,160,0.1)' : 'rgba(232,160,160,0.15)'}`,
                   borderRadius: '9999px',
-                  cursor: noCount >= 5 ? 'default' : 'pointer',
+                  cursor: isRunaway ? 'default' : 'pointer',
                   whiteSpace: 'nowrap',
-                }}
-              >
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                }}>
                 {noButtonText}
               </button>
             </div>
@@ -950,7 +762,6 @@
       );
     }
 
-    // ===== RENDER =====
     const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(<App />);
   </script>
