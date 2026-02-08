@@ -196,7 +196,7 @@
 
     const NO_MEMORIES = [
       {
-        text: "Really? You're saying no to the guy who spotted you across the table at Red Panda Restaurant in Queens back in 2019 and thought 'yep, that's the one'? It was a friend's dinner party, Simran. You weren't even supposed to be that pretty. \u{1F377}",
+        text: "Remember Red Panda Restaurant in Queens? You leaned against me when we were taking pictures and you didn't even realize it. Your body knew before your mind did, Dalli. Are you really going to say no to the guy you were already gravitating towards? \u{1F377}",
         nextBtn: "Are you sure?"
       },
       {
@@ -204,11 +204,11 @@
         nextBtn: "Really sure?"
       },
       {
-        text: "Remember our first vacation to Estes Park and Loveland Pass in Colorado? We literally stood at the Continental Divide at 11,990 feet. You and me against the WORLD at the top of a mountain \u{2014} and now you're clicking No from your couch? \u{1F3D4}\uFE0F",
+        text: "Remember our first vacation to Colorado? We literally stood at the Continental Divide at 11,990 feet. You and me against the WORLD at the top of a mountain \u{2014} and now you're clicking No from your couch? \u{1F3D4}\uFE0F",
         nextBtn: "Super sure?"
       },
       {
-        text: "We painted matching beach sunset cocktail paintings at Lincoln Center and you looked at me with paint on your nose and I knew I was done for. You're really saying no to THAT guy? \u{1F3A8}",
+        text: "We painted matching beach sunset cocktail paintings together and you looked at me with paint on your nose and I knew I was done for. You're really saying no to THAT guy, Bobi? \u{1F3A8}",
         nextBtn: "Completely sure?"
       },
       {
@@ -216,7 +216,7 @@
         nextBtn: "Positive?"
       },
       {
-        text: "We watched LIONS together in the Masai Mara. ACTUAL LIONS, Simran. Most couples argue about what to watch on Netflix \u{2014} we were on safari in Kenya. And you're clicking No?! \u{1F981}\u{1F30D}",
+        text: "We watched LIONS together in the Masai Mara. ACTUAL LIONS, Puntuu. Most couples argue about what to watch on Netflix \u{2014} we were on safari in Kenya. And you're clicking No?! \u{1F981}\u{1F30D}",
         nextBtn: "For real?"
       },
       {
@@ -224,15 +224,15 @@
         nextBtn: "Absolutely sure?"
       },
       {
-        text: "We survived Stairway to Heaven hike in New Jersey together. I watched you climb actual rocks with those little legs. If that's not love, what is? \u{1F97E}",
+        text: "We literally went to the closest thing to heaven on earth \u{2014} Stairway to Heaven \u{2014} with my heaven girl. I watched you climb actual rocks with those little legs. If that's not love, what is? \u{1F97E}",
         nextBtn: "No takebacks?"
       },
       {
-        text: "We literally BOUGHT A HOUSE together. A WHOLE HOUSE. With walls and a roof and everything. You signed the papers, Simran. You're locked in. The mortgage says yes even if you won't. \u{1F3E1}",
+        text: "We literally BOUGHT A HOUSE together. A WHOLE HOUSE. With walls and a roof and everything. You're locked in, Dalli. And even though you're not on the mortgage \u{2014} if you say no, I'm suing you to pay it. \u{1F3E1}",
         nextBtn: "Really truly?"
       },
       {
-        text: "I got down on one knee overlooking the Queensboro Bridge on December 28th, 2023, and you said YES THEN. We went to the Marriage Bureau THE NEXT DAY. You can't reverse a whole proposal AND a legal ceremony with this No button \u{2014} that's not how this works!! \u{1F48D}\u{2728}",
+        text: "I got down on one knee in NYC and you said YES THEN. We went to the Marriage Bureau THE NEXT DAY. You can't reverse a whole proposal AND a legal ceremony with this No button \u{2014} that's not how this works, Bobi!! \u{1F48D}\u{2728}",
         nextBtn: "Final answer?"
       },
       {
@@ -417,17 +417,16 @@
           }} />
           {/* Letter */}
           <div className="absolute rounded-lg" style={{
-            top: '14%', left: '10%', right: '10%', bottom: '12%',
+            top: '50%', left: '10%', right: '10%', bottom: '8%',
             background: opened ? 'transparent' : 'linear-gradient(180deg, #FFFBF2 0%, #FFF5E6 100%)',
             transition: 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s',
             transform: opened ? 'translateY(-80px)' : 'translateY(0)',
             opacity: opened ? 0 : 1,
             boxShadow: '0 2px 15px rgba(0,0,0,0.1)',
           }}>
-            <div className="flex flex-col items-center justify-center h-full p-4">
-              <div className="font-script text-xl sm:text-2xl" style={{ color: '#8B0023' }}>For Simran</div>
-              <div className="font-body text-[10px] mt-1 tracking-widest uppercase font-light" style={{ color: '#B8860B', opacity: 0.7 }}>with all my love</div>
-              <div className="mt-2 text-xl">{'\u{1F48C}'}</div>
+            <div className="flex flex-col items-center justify-center h-full px-4 pt-6 pb-3">
+              <div className="font-script text-lg sm:text-xl" style={{ color: '#8B0023' }}>For Simran</div>
+              <div className="font-body text-[9px] mt-1 tracking-widest uppercase font-light" style={{ color: '#B8860B', opacity: 0.7 }}>with all my love</div>
             </div>
           </div>
           {/* Flap */}
@@ -599,12 +598,17 @@
             <div className="relative z-10 text-center max-w-md mx-auto w-full">
               {yesMessage === 0 ? (
                 <div style={{ animation: 'bounceIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)' }}>
-                  <div className="font-display text-7xl sm:text-8xl font-bold italic"
+                  <div className="font-display text-5xl sm:text-6xl font-bold italic"
                     style={{ color: '#F5D78E', textShadow: '0 0 50px rgba(245,215,142,0.4), 0 0 100px rgba(196,30,58,0.2)', animation: 'heartBeat 1.5s ease-in-out infinite' }}>
                     I knew it!
                   </div>
-                  <div className="text-5xl mt-4" style={{ animation: 'bounceIn 0.8s 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both' }}>
-                    {'\u{1F970}'}
+                  <div className="font-script text-2xl sm:text-3xl mt-4"
+                    style={{ color: '#F4C2C2', animation: 'fadeInUp 0.8s 0.4s ease-out both' }}>
+                    my mayaluu my bobiii my mutuluuu
+                  </div>
+                  <div className="font-script text-2xl sm:text-3xl mt-2"
+                    style={{ color: '#F4C2C2', animation: 'fadeInUp 0.8s 0.6s ease-out both' }}>
+                    mero dalli pukku bobii {'\u{2764}\u{2764}'}
                   </div>
                 </div>
               ) : (
@@ -616,7 +620,7 @@
 
                   <div className="font-display text-lg sm:text-xl leading-relaxed space-y-6 italic font-light" style={{ color: '#F4C2C2' }}>
                     <p style={{ animation: 'fadeInUp 0.8s 0.2s ease-out both' }}>
-                      From a dinner party in Queens to a proposal by the Queensboro Bridge, from climbing mountains in Colorado to watching lions in Kenya...
+                      From a dinner party in Queens to a proposal in NYC, from climbing mountains in Colorado to watching lions in Kenya...
                     </p>
                     <p style={{ animation: 'fadeInUp 0.8s 0.5s ease-out both' }}>
                       From buying our first home to planning our dream wedding...
@@ -704,7 +708,7 @@
             {isRunaway && (
               <div className="mb-6 mx-auto max-w-sm" style={{ animation: 'fadeInUp 0.6s ease-out' }}>
                 <p className="font-display text-lg italic font-light" style={{ color: '#F5D78E', lineHeight: 1.7 }}>
-                  The No button has officially given up. It saw our wedding photos and heard about the Nepal wedding and said "I can't compete with that." Just say yes already... {'\u{1F60F}\u{1F495}'}
+                  The No button has officially given up. It saw your photo album and heard about the Nepal wedding and said "I can't compete with that." Just say yes already... {'\u{1F60F}\u{1F495}'}
                 </p>
               </div>
             )}
